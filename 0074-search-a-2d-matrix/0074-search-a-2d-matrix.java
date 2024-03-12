@@ -4,12 +4,18 @@ class Solution {
         int m = matrix.length;
         int n = matrix[0].length;
         
-        int idx = 0;
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                if(matrix[i][j]==target)
-                    return true;
-            }
+        int start = 0;
+        int end = m*n-1;
+        
+        while(start<=end){
+            int mid = start + (end-start)/2;
+            int r = mid/n;
+            int c = mid%n;
+            
+            if(matrix[r][c]==target) return true;
+            else if(matrix[r][c]>target)
+                end = mid-1;
+            else start = mid+1;
         }
         
         return false;
