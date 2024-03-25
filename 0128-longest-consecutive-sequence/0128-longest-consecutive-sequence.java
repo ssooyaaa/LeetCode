@@ -18,7 +18,6 @@ class Solution {
         
         int max = Integer.MIN_VALUE;
         for(int key : map.keySet()){
-            System.out.println(key);
             if(max<map.get(key)) max = map.get(key);
         }
         
